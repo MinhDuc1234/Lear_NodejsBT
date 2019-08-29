@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+    <title>SB Admin 2 - Dashboard</title>
+
+    <% include ../partials/css %>
+  </head>
+
+  <body id="page-top">
+    <!-- detail modal -->
+    <div class="modal" id="modal-detail">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div>
+            <b>
+              <h1
+                style="text-align: center"
+                class="modal-title"
+                id="detail-modal-name"
+              >
+                Modal Heading
+              </h1>
+            </b>
+            <div class="ml-3">
+              <div>
+                Được tạo bởi <span id="detail-modal-createdBy"></span> vào
+                <span id="detail-modal-createdDate"></span>
+              </div>
+              <div>
+                Cập nhật lần cuối bởi
+                <span id="detail-modal-updatedBy"></span> vào
+                <span id="detail-modal-updatedDate"></span>
+              </div>
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body" id="detail-modal-description"></div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- delete modal -->
+    <div
+      class="modal fade"
+      id="delete-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Bạn có chắc muốn xóa ?
+            </h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Không thể hoàn tác sau khi xóa</div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary "
+              type="button"
+              data-dismiss="modal"
+            >
+              Hủy
+            </button>
+            <button
+              id="btn-confirm-delete"
+              data-dismiss="modal"
+              class="btn btn-primary"
+            >
+              Xóa
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <% include ../partials/sidebar %>
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <% include ../partials/topbar %>
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Content Row -->
+            <div class="row">
+              <div class="col-lg-12">
+                <!-- The Modal -->
+
+                <!-- Basic Card Example -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <div
+                      class="d-sm-flex align-items-center justify-content-between"
+                    ></div>
+                  </div>
+
+                  <div class="card shadow mb-4">
+                    <!-- add activity input group -->
+                    <div style="width:80%; padding-top:15px; padding-left:20px">
+                      <a href="/activities/insert"
+                        ><button
+                          id="insert"
+                          type="button"
+                          class="btn btn-primary"
+                        >
+                          Thêm hoạt động
+                        </button></a
+                      >
+                    </div>
+
+                    <!-- main table -->
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table
+                          class="table table-bordered"
+                          id="dataTable"
+                          width="100%"
+                          cellspacing="0"
+                        >
+                          <thead>
+                            <tr>
+                              <th>STT</th>
+                              <th>Tên hoạt động</th>
+                              <th>Ngày tạo</th>
+                              <th>Hành động</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% activities.map((item, index) => {%>
+                            <tr>
+                              <td><%- index+1 %></td>
+                              <td style="width:40%"><%- item.name %></td>
+                              <td><%- item.createdDate.toDateString("en-US") %></td>
+                              <td style="width:35%">
+                                <button
+                                  id-activity="<%- item._id %>"
+                                  id="btn-detail"
+                                  type="button"
+                                  class="btn btn-primary btn-icon-split detail"
+                                  data-toggle="modal"
+                                  data-target="#modal-detail"
+                                >
+                                  <span class="text">Chi tiết</span>
+                                </button>
+                                <button
+                                  id-activity="<%- item._id%>"
+                                  data-toggle="modal"
+                                  data-target="#delete-modal"
+                                  id="btn-delete"
+                                  type="button"
+                                  href="#"
+                                  class="btn btn-danger btn-icon-split delete"
+                                >
+                                  <span class="text">Xóa</span>
+                                </button>
+                                <button
+                                  id-activity="<%- item._id%>"
+                                  id="myBtn"
+                                  type="button"
+                                  href="#"
+                                  class="btn btn-warning btn-icon-split edit"
+                                >
+                                  <span class="text">Sửa</span>
+                                </button>
+                                <button
+                                  id-activity="<%- item._id%>"
+                                  id="myBtn"
+                                  type="button"
+                                  href="#"
+                                  class="btn btn-dark qrcode"
+                                >
+                                  <span class="text">Xuất QR code</span>
+                                </button>
+                              </td>
+                            </tr>
+                            <% }) %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <% include ../partials/footer %>
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <% include ../partials/logout %> <% include ../partials/scripts %>
+    <!-- Page level custom scripts -->
+    <script>
+      // Call the dataTables jQuery plugin
+      $(document).ready(function() {
+        $("#dataTable").DataTable();
+      });
+
+      //handle insert
+      // $("#insert").click(function () {
+      //   // var name = $('#txtbox-insert').val();
+      //   // var description = $('.summernote-add-description').summernote('code');
+      //   // $('#txtbox-insert').val('');
+
+      //   // $.post("/activities/api/",
+      //   //   {
+      //   //     name: name,
+      //   //     description: description
+      //   //   },
+      //   //   function (data, status) {
+      //   //     alert("Thêm thành công");
+      //   //   });
+      //   // $('.summernote-add-description').summernote('destroy');
+      //   // location.reload();
+      //   console.log('insertd');
+      // });
+
+      //handle delete
+      $(".delete").click(function() {
+        console.log("clickeed");
+        $("#btn-confirm-delete").attr(
+          "id-activity",
+          $(this).attr("id-activity")
+        );
+      });
+      $("#btn-confirm-delete").click(function() {
+        var id = $(this).attr("id-activity");
+        var reqURL = "activities/api/" + id;
+        $.ajax({
+          url: reqURL,
+          type: "DELETE",
+          success: function(result) {
+            alert("Xóa thành công");
+          }
+        });
+        location.reload();
+      });
+
+      $(".summernote-add-description").summernote({
+        placeholder: "Nhập mô tả ..."
+      });
+
+      //handle view detail
+      $(".detail").click(function() {
+        var id = $(this).attr("id-activity");
+        var reqURL = "activities/api/" + id;
+        console.log(reqURL);
+        $.get(reqURL, function(data, status) {
+          var name = data.name;
+          var description = data.description;
+          var createdDate = new Date(data.createdDate).toDateString("en-US");
+          var updatedDate = new Date(data.updatedDate).toDateString("en-US");
+          var createdBy = data.createdBy;
+          var updatedBy = data.updatedBy;
+          $("#detail-modal-name").text(name);
+          $("#detail-modal-createdBy").text(createdBy.username);
+          $("#detail-modal-createdDate").text(createdDate);
+          $("#detail-modal-updatedBy").text(updatedBy.username);
+          $("#detail-modal-updatedDate").text(updatedDate);
+          $("#detail-modal-description").html(description);
+        });
+      });
+
+      //handle update
+      $(".edit").click(function() {
+        var id = $(this).attr("id-activity");
+        var a = document.createElement("a");
+        a.href = "activities/edit/" + id;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+      var update = function() {
+        //
+        console.log("updated");
+      };
+
+      //handle export qr code
+      $(".qrcode").click(function() {
+        var id = $(this).attr("id-activity");
+        var reqURL = "activities/api/qrcode/" + id;
+        console.log(reqURL);
+        $.get(reqURL, function(data, status) {
+          console.log(data);
+          var a = document.createElement("a");
+          a.href = document.location.origin + data.data;
+          a.target = "blank";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        });
+      });
+    </script>
+  </body>
+</html>

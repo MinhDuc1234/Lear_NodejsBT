@@ -1,0 +1,5 @@
+module.exports = {
+  DEFAULT_LIMIT_DATA_PER_REQUEST: 15,
+  DEFAULT_SKIP_DATA_PER_REQUEST: 0,
+  
+}

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+    <title>SB Admin 2 - Dashboard</title>
+
+    <% include ../partials/css %>
+  </head>
+
+  <body id="page-top">
+    <!-- local variable from server -->
+    <div id="news_local" style="display:none"><%- news %></div>
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <% include ../partials/sidebar %>
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <% include ../partials/topbar %>
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div
+              class="d-sm-flex align-items-center justify-content-between mb-4"
+            >
+              <h1 class="h3 mb-0 text-gray-800">Quản lý thông báo</h1>
+            </div>
+
+            <!-- Content Row -->
+
+            <div class="row">
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-primary text-uppercase mb-1"
+                        >
+                          Tổng số thông báo
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                          <%- news.length %>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-success text-uppercase mb-1"
+                        >
+                          Tổng số phân loại thông báo
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                          <%- categories.length %>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-info text-uppercase mb-1"
+                        >
+                          Tasks
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                            <div
+                              class="h5 mb-0 mr-3 font-weight-bold text-gray-800"
+                            >
+                              50%
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="progress progress-sm mr-2">
+                              <div
+                                class="progress-bar bg-info"
+                                role="progressbar"
+                                style="width: 50%"
+                                aria-valuenow="50"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i
+                          class="fas fa-clipboard-list fa-2x text-gray-300"
+                        ></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pending Requests Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-warning text-uppercase mb-1"
+                        >
+                          Pending Requests
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                          18
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <!-- Basic Card Example -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <div
+                      class="d-sm-flex align-items-center justify-content-between"
+                    >
+                      <h6 class="m-0 font-weight-bold text-primary">
+                        Danh sách các thông báo
+                      </h6>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                        data-target="#editModal"
+                      >
+                        Tạo thông báo mới
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card shadow mb-4">
+                    
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table
+                          class="table table-bordered table-striped"
+                          id="dataTable"
+                          width="100%"
+                          cellspacing="0"
+                        >
+                          <thead class="thead-dark">
+                            <tr>
+                              <th>STT</th>
+                              <th>Tiêu đề</th>
+                              <th>Mô tả ngắn</th>
+                              <th>Ngày tạo</th>
+                              <th>Hành động</th>
+                            </tr>
+                          </thead>
+                          <tfoot>
+                            <tr>
+                              <th>STT</th>
+                              <th>Tiêu đề</th>
+                              <th>Mô tả ngắn</th>
+                              <th>Ngày tạo</th>
+                              <th>Hành động</th>
+                            </tr>
+                          </tfoot>
+                          <tbody>
+                            <% news.map((item, index) => { %>
+
+                            <tr>
+                              <td style="width:5%"><%- index + 1 %></td>
+                              <td style="width:25%"><%- item.title %></td>
+                              <td style="width:30%">
+                                <%- item.shortDescription %>
+                              </td>
+                              <td style="width:15%">
+                                <%- item.createdDate.toLocaleDateString('en-US')
+                                %>
+                              </td>
+                              <td style="width:30%">
+                                <button
+                                  type="button"
+                                  data-toggle="modal"
+                                  data-target="#showDetail"
+                                  class="btn btn-success btn-icon-split"
+                                  onclick="showNews('<%- item._id %>')"
+                                >
+                                  <span class="text">Chi Tiết</span>
+                                </button>
+                                <button
+                                  data-toggle="modal"
+                                  data-target="#deleteModal"
+                                  type="button"
+                                  class="btn btn-danger btn-icon-split"
+                                  onclick="seleteId('<%- item._id %>')"
+                                >
+                                  <span class="text">Xóa</span>
+                                </button>
+                                <button
+                                  data-toggle="modal"
+                                  data-target="#updateModal"
+                                  type="button"
+                                  class="btn btn-warning btn-icon-split"
+                                  onclick="loadDataToModal('<%- item._id%>')"
+                                >
+                                  <span class="text">Sửa</span>
+                                </button>
+                              </td>
+                            </tr>
+                            <% }) %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <% include ../partials/footer %>
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <% include ../partials/logout %>
+    <% include ../partials/scripts %>
+    <% include ./deleteModal %>
+    <% include ./editModal %>
+    <% include ./createModal %>
+    <% include ./updateModal %>
+    <!-- Page level custom scripts -->
+    <script>
+      // Call the dataTables jQuery plugin
+      $(document).ready(function() {
+        $("#dataTable").DataTable();
+      });
+      var selectId = "";
+    </script>
+    <!-- <script src="/js/dropzone.js"></script> -->
+
+    <script>
+      function seleteId(id) {
+        selectId = id;
+      }
+      function deleteNews() {
+        $.ajax({
+          url: `/news/api/${selectId}`,
+          method: "DELETE",
+          success: (data) => {
+            window.location.reload();
+          }
+        })
+      }
+      function showNews(id) {
+        selectId = id;
+        $.ajax({
+          url: `/news/api/${id}`,
+          method: "GET",
+          success: (res) => {
+            $('#newsImg').attr('src', '');
+            $('#newsImg').attr('src', res.data.imageLink);
+            $('#newsTitle').text(`${res.data.title} - ${res.data.category.title}`);
+            $('#newsContent').text(res.data.content);
+            $('#newsShortDescription').text(res.data.shortDescription);
+          }
+        })
+      }
+      function loadDataToModal(id) {
+        selectId = id;
+        $.ajax({
+          url: `/news/api/${id}`,
+          method: "GET",
+          success: res => {
+            console.log(res.data);
+            $("#title").val(res.data.title);
+            $("#shortDescription_update").val(res.data.shortDescription);
+            $("#content_update").val(res.data.content);
+            $("#news_id").val(selectId);
+            $("#updateForm").attr("action", "/news/update/" + selectId);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

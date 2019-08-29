@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <% include ../partials/css %>
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <% include ../partials/sidebar %>
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <% include ../partials/topbar %>
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div
+              class="d-sm-flex align-items-center justify-content-between mb-4"
+            >
+              <h1 class="h3 mb-0 text-gray-800">Quản lý thi trắc nghiệm</h1>
+              <a
+                href="#"
+                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                ><i class="fas fa-download fa-sm text-white-50"></i> Generate
+                Report</a
+              >
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-primary text-uppercase mb-1"
+                        >
+                          Earnings (Monthly)
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                          $40,000
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-success text-uppercase mb-1"
+                        >
+                          Earnings (Annual)
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                          $215,000
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-info text-uppercase mb-1"
+                        >
+                          Tasks
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                            <div
+                              class="h5 mb-0 mr-3 font-weight-bold text-gray-800"
+                            >
+                              50%
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="progress progress-sm mr-2">
+                              <div
+                                class="progress-bar bg-info"
+                                role="progressbar"
+                                style="width: 50%"
+                                aria-valuenow="50"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i
+                          class="fas fa-clipboard-list fa-2x text-gray-300"
+                        ></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pending Requests Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-warning text-uppercase mb-1"
+                        >
+                          Pending Requests
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                          18
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12">
+                <!-- Basic Card Example -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <div
+                      class="d-sm-flex align-items-center justify-content-between"
+                    >
+                      <h6 class="m-0 font-weight-bold text-primary">
+                        Danh sách các bộ câu hỏi
+                      </h6>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                        data-target="#create"
+                      >
+                        Tạo bộ câu hỏi
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table
+                        class="table table-bordered table-striped"
+                        id="dataTable"
+                        width="100%"
+                        cellspacing="0"
+                      >
+                        <thead class="thead-dark">
+                          <tr>
+                            <th>#</th>
+                            <th>Tên bộ câu hỏi</th>
+                            <th>Mô tả</th>
+                            <th>Số lượng câu hỏi</th>
+                            <th>Hành động</th>
+                          </tr>
+                        </thead>
+                        <tfoot>
+                          <tr>
+                            <th>#</th>
+                            <th>Tên bộ câu hỏi</th>
+                            <th>Mô tả</th>
+                            <th>Số lượng câu hỏi</th>
+                            <th>Hành động</th>
+                          </tr>
+                        </tfoot>
+                        <tbody>
+                          <% exams.map((item, index) => { %>
+                          <tr>
+                            <td><%- index + 1%></td>
+                            <td><%- item.name %></td>
+                            <td><%- item.description %></td>
+                            <td><%- item.questions.length %></td>
+                            <td>
+                              <a
+                                href="/questions/<%- item._id %>/list"
+                                class="btn btn-primary btn-circle btn-sm"
+                              >
+                                <i class="far fa-eye"></i>
+                              </a>
+                              <a
+                                href="#"
+                                class="btn btn-primary btn-circle btn-sm"
+                              >
+                                <i class="far fa-edit"></i>
+                              </a>
+                              <a
+                                href="#"
+                                class="btn btn-primary btn-circle btn-sm"
+                                onclick="deleteExams('<%- item._id %>')"
+                              >
+                                <i class="far fa-trash-alt"></i>
+                              </a>
+                            </td>
+                          </tr>
+                          <% }) %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <% include ../partials/footer %>
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <% include ./createExams %> <% include ../partials/logout %> <% include
+    ../partials/scripts %>
+    <!-- Page level custom scripts -->
+    <script>
+      // Call the dataTables jQuery plugin
+      $(document).ready(function() {
+        $("#dataTable").DataTable();
+      });
+    </script>
+    <script>
+      function deleteExams(id) {
+        $.ajax({
+          method: "DELETE",
+          url: `/questions/exams/${id}`
+        })
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>

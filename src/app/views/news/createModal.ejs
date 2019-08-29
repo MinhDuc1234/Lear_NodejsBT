@@ -1,0 +1,43 @@
+<div
+  class="modal fade"
+  id="showDetail"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Chi tiết thông báo</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <center>
+      <div class="modal-body">
+        <div class="card">
+          <img id="newsImg" src="#" class="card-img-top" alt='Không có hình ảnh' style="width:50%;height:400px;"/>
+          <div class="card-body">
+            <h5 id="newsTitle" class="card-title"></h5>
+            <h6 id="newsCreatedBy" class="card-title"></h6>
+            <p id="newsShortDescription" class="card-text"></p>
+            <p id="newsContent" class="card-text"></p>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    </center>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
